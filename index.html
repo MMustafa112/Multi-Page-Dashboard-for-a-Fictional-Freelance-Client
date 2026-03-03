@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void_OS | Task 6 Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="66.css">
+</head>
+<body>
+    <div class="purple-glow"></div>
+    <div class="grid-overlay"></div>
+
+    <div class="dashboard-shell">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <h2 class="logo">VOID<span>OS</span></h2>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-btn active" onclick="showPage('overview', this)">
+                    <i class="fas fa-grid-2"></i> <span>OVERVIEW</span>
+                </button>
+                <button class="nav-btn" onclick="showPage('projects', this)">
+                    <i class="fas fa-layer-group"></i> <span>PROJECTS</span>
+                </button>
+                <button class="nav-btn" onclick="showPage('settings', this)">
+                    <i class="fas fa-user-shield"></i> <span>IDENTITY</span>
+                </button>
+            </nav>
+            <div class="user-card">
+                <div class="avatar-ring"></div>
+                <div class="user-meta">
+                    <p id="display-name">ROOT ADMIN</p>
+                    <small>Freelance Tier</small>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-viewport">
+            <section id="overview" class="page active">
+                <header class="view-header">
+                    <h1>REVENUE_STREAM</h1>
+                    <p id="live-clock">00:00:00 UTC</p>
+                </header>
+                <div class="stats-grid">
+                    <div class="glass-card p-border">
+                        <small>TOTAL EARNINGS</small>
+                        <div class="stat-big">$18,420</div>
+                    </div>
+                    <div class="glass-card m-border">
+                        <small>ACTIVETASKS</small>
+                        <div class="stat-big">14</div>
+                    </div>
+                    <div class="glass-card b-border">
+                        <small>AVGLOAD</small>
+                        <div class="stat-big">32%</div>
+                    </div>
+                </div>
+                <div class="glass-card chart-wrapper">
+                    <h3>MONTHLY REVENUE FLOW</h3>
+                    <canvas id="voidRevenueChart"></canvas>
+                </div>
+            </section>
+
+            <section id="projects" class="page">
+                <header class="view-header"><h1>PROJECT REGISTRY</h1></header>
+                <div class="glass-card">
+                    <table class="void-table">
+                        <thead>
+                            <tr><th>IDENTIFIER</th><th>STATUS</th><th>DEADLINE</th></tr>
+                        </thead>
+                        <tbody id="project-rows">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="settings" class="page">
+                <header class="view-header"><h1>IDENTITY PROTOCOL</h1></header>
+                <div class="settings-layout">
+                    <div class="glass-card">
+                        <h3>USER DATA ENCRYPTION</h3>
+                        <div class="input-grid">
+                            <div class="field">
+                                <label>NAME</label>
+                                <input type="text" id="input-name" class="void-input" value="ROOT_ADMIN">
+                            </div>
+                            <div class="field">
+                                <label>EMAIL</label>
+                                <input type="email" id="input-email" class="void-input" placeholder="admin@void.os">
+                            </div>
+                        </div>
+                        <div class="field" style="margin-top:20px;">
+                            <label>PASSWORD</label>
+                            <input type="password" class="void-input" placeholder="••••••••">
+                        </div>
+                        <button class="void-btn" onclick="syncProfile()">SYNC CHANGES</button>
+                    </div>
+                    <div class="glass-card security-meta">
+                        <h3>NODE_STATUS</h3>
+                        <div class="status-row"><span>2FA AUTH</span><span class="p-text">ENABLED</span></div>
+                        <div class="status-row"><span>SSL LINK</span><span class="p-text">SECURE</span></div>
+                        <p class="timestamp-small">LAST SYNC: 03.03.2026</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="66.js"></script>
+</body>
+</html>
